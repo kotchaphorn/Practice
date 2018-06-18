@@ -30,5 +30,7 @@ replicate <- function(repA, repB, sample_name) {
   #Text for file name
   library(stringr)
   filename <- paste(str_replace_all(sample_name," ", "_"), "replicates.png", sep = "_")
+  
+  #Save plot as png
   ggsave(filename = filename)
 }
