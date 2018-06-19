@@ -25,12 +25,12 @@ replicate <- function(repA, repB, sample_name) {
     scale_y_log10(labels = trans_format("log10", math_format(10^.x))) +
     labs(x = "Replicate A (FPKM)", y = "Replicate B (FPKM)", title = sample_name) + 
     theme(plot.title = element_text(hjust = 0.5)) +
-    annotate("text", x = min(df_FPKM$data_A.FPKM...1), y = max(df_FPKM$data_B.FPKM...1), hjust = 0.1 ,label = r2_on_plot, parse = TRUE)
+    annotate("text", x = min(df_FPKM$[,1]), y = max(df_FPKM$[,2]), hjust = 0.1 ,label = r2_on_plot, parse = TRUE)
   
   #Text for file name
   library(stringr)
-  filename <- paste(str_replace_all(sample_name," ", "_"), "replicates.png", sep = "_")
+  filename <- paste(str_replace_all(sample_name," ", "_"), "replicates.pdf", sep = "_")
   
-  #Save plot as png
+  #Save plot as pdf
   ggsave(filename = filename)
 }
